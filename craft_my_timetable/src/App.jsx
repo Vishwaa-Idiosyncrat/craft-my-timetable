@@ -63,6 +63,35 @@ class App extends Component {
     }
   };
 
+  BatchSelector = () => {
+    let Batches = [
+      "BTech 1st year",
+      "BTech 2nd year",
+      "BTech 3rd year",
+      "BTech 4th year",
+      "Mtech 1st year",
+      "Mtech 2nd year",
+      "Msc 1st year",
+      "Msc 2nd year",
+      "PhD",
+    ];
+
+    let Selected = [];
+    return (
+      <div className="BatchSelector">
+        <h3>Batch selector</h3>
+        <form action="/create">
+          <select className="Batches" id="Batches">
+            {Batches.map((item) => 
+            <option value={item} onClick={() => console.log(item)}>
+              {item}
+            </option>)}
+          </select>
+        </form>
+      </div>
+    );
+  };
+
   render() {
     return (
       <div>
@@ -73,6 +102,7 @@ class App extends Component {
           <button onClick={this.onFileUpload}>Upload!</button>
         </div>
         {this.fileData()}
+        {this.BatchSelector()}
       </div>
     );
   }
