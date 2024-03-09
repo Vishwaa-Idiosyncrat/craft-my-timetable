@@ -21,6 +21,7 @@ export default function BatchSelect() {
   ];
 
   const handleChange = (event) => {
+    console.log(event.target.value)
     setBatch(event.target.value);
   };
 
