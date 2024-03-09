@@ -2,6 +2,8 @@ import axios from "axios";
 
 import React, { Component } from "react";
 
+import { useState } from "react";
+
 class App extends Component {
   state = {
     // Initially, no file is selected
@@ -76,40 +78,20 @@ class App extends Component {
       "PhD",
     ];
 
+    let Selected = [];
     return (
       <div className="BatchSelector">
-        <h3>Batch</h3>
+        <h3>Batch selector</h3>
         <form action="/create">
           <select className="Batches" id="Batches">
-            {Batches.map((item) => 
-            <option value={item} onClick={() => console.log(item)}>
-              {item}
-            </option>)}
-          </select>
-        </form>
-      </div>
-    );
-  };
-
-
-  BranchSelector = () => {
-    let Branches = [
-      "EE",
-      "CSE",
-      "CE",
-      "DS",
-      "ME"
-    ];
-
-    return (
-      <div className="BranchSelector">
-        <h3>Branch</h3>
-        <form action="/create">
-          <select className="Branches" id="Branches">
-            {Branches.map((item) => 
-            <option value={item} onClick={() => console.log(item)}>
-              {item}
-            </option>)}
+            {Batches.map((item, index) => (
+              <option
+                value={item}
+                onClick={() => Selected.push(item) && console.log(Selected)}
+              >
+                {item}
+              </option>
+            ))}
           </select>
         </form>
       </div>
@@ -117,7 +99,7 @@ class App extends Component {
   };
 
   CourseSelector = () => {
-    const courses = [
+    let courses = [
       "MA1011",
       "PH1030",
       "ME1030",
@@ -128,16 +110,18 @@ class App extends Component {
       "OLEP",
     ];
 
-    let Selected = new Set([]);
+    let Selected = [];
 
-    let Course
     return (
       <div className="CourseSelector">
-        <h3>Courses</h3>
+        <h3>Course selector</h3>
         <form action="/create">
           <select className="Courses" id="Courses">
             {courses.map((item, index) => (
-              <option value={item} onClick={() => Selected.add(item) && console.log(Selected)}>
+              <option
+                value={item}
+                onClick={() => Selected.push(item) && console.log(Selected)}
+              >
                 {item}
               </option>
             ))}
@@ -146,7 +130,6 @@ class App extends Component {
       </div>
     );
   };
-
 
   render() {
     return (
@@ -159,7 +142,6 @@ class App extends Component {
         </div>
         {this.fileData()}
         {this.BatchSelector()}
-        {this.BranchSelector()}
         {this.CourseSelector()}
       </div>
     );
