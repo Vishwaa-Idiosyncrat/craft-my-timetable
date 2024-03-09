@@ -2,6 +2,13 @@ import axios from "axios";
 
 import React, { Component } from "react";
 
+import "./CourseSelector"
+import MultipleSelectCheckmarks from "./CourseSelector";
+import "./BatchSelector"
+import BatchSelect from "./BatchSelector";
+import "./BranchSelector"
+import BranchSelect from "./BranchSelector";
+
 class App extends Component {
   state = {
     // Initially, no file is selected
@@ -63,89 +70,89 @@ class App extends Component {
     }
   };
 
-  BatchSelector = () => {
-    let Batches = [
-      "BTech 1st year",
-      "BTech 2nd year",
-      "BTech 3rd year",
-      "BTech 4th year",
-      "Mtech 1st year",
-      "Mtech 2nd year",
-      "Msc 1st year",
-      "Msc 2nd year",
-      "PhD",
-    ];
+  // BatchSelector = () => {
+  //   let Batches = [
+  //     "BTech 1st year",
+  //     "BTech 2nd year",
+  //     "BTech 3rd year",
+  //     "BTech 4th year",
+  //     "Mtech 1st year",
+  //     "Mtech 2nd year",
+  //     "Msc 1st year",
+  //     "Msc 2nd year",
+  //     "PhD",
+  //   ];
 
-    return (
-      <div className="BatchSelector">
-        <h3>Batch</h3>
-        <form action="/create">
-          <select className="Batches" id="Batches">
-            {Batches.map((item) => 
-            <option value={item} onClick={() => console.log(item)}>
-              {item}
-            </option>)}
-          </select>
-        </form>
-      </div>
-    );
-  };
+  //   return (
+  //     <div className="BatchSelector">
+  //       <h3>Batch</h3>
+  //       <form action="/create">
+  //         <select className="Batches" id="Batches">
+  //           {Batches.map((item) => 
+  //           <option value={item} onClick={() => console.log(item)}>
+  //             {item}
+  //           </option>)}
+  //         </select>
+  //       </form>
+  //     </div>
+  //   );
+  // };
 
 
-  BranchSelector = () => {
-    let Branches = [
-      "EE",
-      "CSE",
-      "CE",
-      "DS",
-      "ME"
-    ];
+  // BranchSelector = () => {
+  //   let Branches = [
+  //     "EE",
+  //     "CSE",
+  //     "CE",
+  //     "DS",
+  //     "ME"
+  //   ];
 
-    return (
-      <div className="BranchSelector">
-        <h3>Branch</h3>
-        <form action="/create">
-          <select className="Branches" id="Branches">
-            {Branches.map((item) => 
-            <option value={item} onClick={() => console.log(item)}>
-              {item}
-            </option>)}
-          </select>
-        </form>
-      </div>
-    );
-  };
+  //   return (
+  //     <div className="BranchSelector">
+  //       <h3>Branch</h3>
+  //       <form action="/create">
+  //         <select className="Branches" id="Branches">
+  //           {Branches.map((item) => 
+  //           <option value={item} onClick={() => console.log(item)}>
+  //             {item}
+  //           </option>)}
+  //         </select>
+  //       </form>
+  //     </div>
+  //   );
+  // };
 
-  CourseSelector = () => {
-    const courses = [
-      "MA1011",
-      "PH1030",
-      "ME1030",
-      "MA1020",
-      "CE1020",
-      "CY1040",
-      "Random course",
-      "OLEP",
-    ];
+  // CourseSelector = () => {
+  //   const courses = [
+  //     "MA1011",
+  //     "PH1030",
+  //     "ME1030",
+  //     "MA1020",
+  //     "CE1020",
+  //     "CY1040",
+  //     "Random course",
+  //     "OLEP",
+  //   ];
 
-    let Selected = new Set([]);
+  //   let Selected = new Set([]);
 
-    let Course
-    return (
-      <div className="CourseSelector">
-        <h3>Courses</h3>
-        <form action="/create">
-          <select className="Courses" id="Courses">
-            {courses.map((item, index) => (
-              <option value={item} onClick={() => Selected.add(item) && console.log(Selected)}>
-                {item}
-              </option>
-            ))}
-          </select>
-        </form>
-      </div>
-    );
-  };
+  //   let Course
+  //   return (
+  //     <div className="CourseSelector">
+  //       <h3>Courses</h3>
+  //       <form action="/create">
+  //         <select className="Courses" id="Courses">
+  //           {courses.map((item, index) => (
+  //             <option value={item} onClick={() => Selected.add(item) && console.log(Selected)}>
+  //               {item}
+  //             </option>
+  //           ))}
+  //         </select>
+  //       </form>
+  //     </div>
+  //   );
+  // };
 
 
   render() {
@@ -158,9 +165,9 @@ class App extends Component {
           <button onClick={this.onFileUpload}>Upload!</button>
         </div>
         {this.fileData()}
-        {this.BatchSelector()}
-        {this.BranchSelector()}
-        {this.CourseSelector()}
+        <BatchSelect/>
+        <BranchSelect/>
+        <MultipleSelectCheckmarks/>
       </div>
     );
   }
