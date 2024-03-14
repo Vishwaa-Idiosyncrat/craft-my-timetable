@@ -7,6 +7,7 @@ import BranchSelect from "./BranchSelector";
 import InputFileUpload from "./fileUpload";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
+import PersistentDrawerLeft from './drawer.jsx';
 
 const darkTheme = createTheme({
   palette: {
@@ -30,6 +31,7 @@ class App extends Component {
     return (
       <div className="main" id="main-main">
         <body>
+          <PersistentDrawerLeft />
           <div style={titleBar}>
             <h1 className="title">Craft my Time Table</h1>
             <div style={centerDivStyle}>
