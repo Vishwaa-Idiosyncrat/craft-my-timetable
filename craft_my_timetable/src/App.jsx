@@ -171,14 +171,14 @@ class App extends Component {
         <body>
           <div className="title">
             <div style={centerDivStyle}>
-              <img
+              {/* <img
                 className="logo"
                 src="https://www.iitpkd.ac.in/sites/default/files/inline-images/IIT_PKD_short%20logo_RGB.jpg"
                 alt="IIT Palakkad"
                 width={147.5}
                 height={131.125}
                 loading="true"
-              />
+              /> */}
               <h1 className="title">Craft my Time Table</h1>
             </div>
           </div>
@@ -186,10 +186,10 @@ class App extends Component {
         <ThemeProvider theme={darkTheme}>
           <CssBaseline />
           <div style={centerDivStyle}>
-            <h3>Upload the time table</h3>
+            {/* <h3>Upload the time table</h3> */}
           </div>
           <div style={centerDivStyle}>
-            <InputFileUpload />
+            {/* <InputFileUpload /> */}
           </div>
           <div style={centerDivStyle}>
             <BatchSelect />
