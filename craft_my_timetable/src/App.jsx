@@ -1,4 +1,5 @@
 import axios from "axios";
+import "./App.css";
 import React, { Component } from "react";
 import MultipleSelectCheckmarks from "./CourseSelector";
 import BatchSelect from "./BatchSelector";
@@ -168,29 +169,34 @@ class App extends Component {
     return (
       <div className="main" id="main-main">
         <body>
-          <div style={centerDivStyle}>
-          <img
-            src="https://www.iitpkd.ac.in/sites/default/files/inline-images/IIT_PKD_short%20logo_RGB.jpg"
-            alt="IIT Palakkad"
-            width={147.5}
-            height={131.125}
-            loading="true"
-            />
-            <h1>Craft my Time Table</h1>
+          <div className="title">
+            <div style={centerDivStyle}>
+              <img
+                className="logo"
+                src="https://www.iitpkd.ac.in/sites/default/files/inline-images/IIT_PKD_short%20logo_RGB.jpg"
+                alt="IIT Palakkad"
+                width={147.5}
+                height={131.125}
+                loading="true"
+              />
+              <h1 className="title">Craft my Time Table</h1>
+            </div>
           </div>
         </body>
         <ThemeProvider theme={darkTheme}>
           <CssBaseline />
-          <div>
+          <div style={centerDivStyle}>
             <h3>Upload the time table</h3>
           </div>
-            <InputFileUpload />
           <div style={centerDivStyle}>
-          <BatchSelect />
-          <BranchSelect />
+            <InputFileUpload />
           </div>
           <div style={centerDivStyle}>
-          <MultipleSelectCheckmarks />
+            <BatchSelect />
+            <BranchSelect />
+          </div>
+          <div style={centerDivStyle}>
+            <MultipleSelectCheckmarks />
           </div>
         </ThemeProvider>
       </div>
