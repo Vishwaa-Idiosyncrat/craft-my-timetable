@@ -1,11 +1,24 @@
 import axios from "axios";
-
 import React, { Component } from "react";
-
 import MultipleSelectCheckmarks from "./CourseSelector";
 import BatchSelect from "./BatchSelector";
 import BranchSelect from "./BranchSelector";
 import InputFileUpload from "./fileUpload";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { CssBaseline } from "@mui/material";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
+
+const centerDivStyle = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  // height: '100vh'
+};
 
 class App extends Component {
   // state = {
@@ -153,13 +166,33 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Upload the time table</h1>
-        <h3>File Upload using React</h3>
-        <InputFileUpload />
-        <BatchSelect />
-        <BranchSelect />
-        <MultipleSelectCheckmarks />
+      <div className="main" id="main-main">
+        <body>
+          <div style={centerDivStyle}>
+          <img
+            src="https://www.iitpkd.ac.in/sites/default/files/inline-images/IIT_PKD_short%20logo_RGB.jpg"
+            alt="IIT Palakkad"
+            width={147.5}
+            height={131.125}
+            loading="true"
+            />
+            <h1>Craft my Time Table</h1>
+          </div>
+        </body>
+        <ThemeProvider theme={darkTheme}>
+          <CssBaseline />
+          <div>
+            <h3>Upload the time table</h3>
+          </div>
+            <InputFileUpload />
+          <div style={centerDivStyle}>
+          <BatchSelect />
+          <BranchSelect />
+          </div>
+          <div style={centerDivStyle}>
+          <MultipleSelectCheckmarks />
+          </div>
+        </ThemeProvider>
       </div>
     );
   }

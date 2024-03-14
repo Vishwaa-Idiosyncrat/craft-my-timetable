@@ -40,6 +40,7 @@ export default function MultipleSelectCheckmarks() {
       // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
     );
+    console.log(value)
   };
 
   return (
