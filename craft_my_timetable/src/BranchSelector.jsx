@@ -5,16 +5,39 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function BranchSelect() {
-  const [Batch, setBatch] = React.useState("");
+export default function BranchSelect({ batch }) {
+  const [branch, setBatch] = React.useState("");
 
-  const Branches = ["CE", "CSE", "EE", "ME", "DS"];
+  let branches = [];
+  if (batch === "B.Tech") {
+    branches = ["CE", "CSE", "EE", "ME", "DSE"];
+  } else if (batch === "M.Tech") {
+    branches = [
+      "Geotechnical Engineering",
+      "Manufacturing and Materials Engineering",
+      "Computing and Mathematics",
+      "Data Science",
+      "Power Electronics and Power Systems",
+      "System-on-Chip Design",
+    ];
+  } else if (batch === "M.Sc") {
+    branches = ["Chemistry", "Mathematics", "Physics"];
+  } else if (batch === "PhD") {
+    branches = ["1st Year", "2nd Year", "3rd Year", "4th Year", "5th Year"];
+  }
+
   const handleChange = (event) => {
     setBatch(event.target.value);
   };
 
+  const branchStyle = {
+    display: "grid",
+    alignItems: "center",
+    justifyContent: "center",
+  };
+
   return (
-    <div>
+    <div style={branchStyle}>
       <div>
         <h3>Please select you Branch</h3>
       </div>
@@ -24,11 +47,11 @@ export default function BranchSelect() {
           <Select
             labelId="branch-select"
             id="branch-select"
-            value={Batch}
+            value={branch}
             label="Branch"
             onChange={handleChange}
           >
-            {Branches.map((item) => (
+            {branches.map((item) => (
               <MenuItem value={item}>{item}</MenuItem>
             ))}
           </Select>

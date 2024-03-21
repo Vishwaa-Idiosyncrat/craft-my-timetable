@@ -1,51 +1,43 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
-export default function BatchSelect() {
-  const [Batch, setBatch] = React.useState('');
-
-  const Batches = [
-    "BTech 1st year",
-    "BTech 2nd year",
-    "BTech 3rd year",
-    "BTech 4th year",
-    "Mtech 1st year",
-    "Mtech 2nd year",
-    "Msc 1st year",
-    "Msc 2nd year",
-    "PhD",
-  ];
+export default function BatchSelect({ setBatch }) {
+  const Batches = ["B.Tech", "M.Tech", "M.Sc", "PhD"];
 
   const handleChange = (event) => {
-    console.log(event.target.value)
     setBatch(event.target.value);
   };
 
+  const batchStyle = {
+    marginTop: "20px",
+    display: "grid",
+    alignItems: "center",
+    justifyContent: "center",
+  };
+
   return (
-    <div>
-        <div>
-            <h3>Please select you Batch</h3>
-        </div>
-        <Box sx={{ minWidth: 300 }}>
+    <div style={batchStyle}>
+      <div>
+        <h3>Please select your Batch</h3>
+      </div>
+      <Box sx={{ minWidth: 300 }}>
         <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="batch-select">Batch</InputLabel>
-            <Select
+          <InputLabel id="batch-select">Batch</InputLabel>
+          <Select
             labelId="batch-select"
             id="batch-select"
-            value={Batch}
-            label="Batch"
             onChange={handleChange}
-            >
-                {Batches.map((item)=>
-            <MenuItem value={item}>
-                {item}</MenuItem>)}
-            </Select>
+          >
+            {Batches.map((item) => (
+              <MenuItem value={item}>{item}</MenuItem>
+            ))}
+          </Select>
         </FormControl>
-        </Box>
+      </Box>
     </div>
   );
 }
