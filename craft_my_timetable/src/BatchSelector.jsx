@@ -13,7 +13,6 @@ export default function BatchSelect({ setBatch }) {
   };
 
   const batchStyle = {
-    marginTop: "20px",
     display: "grid",
     alignItems: "center",
     justifyContent: "center",
@@ -21,9 +20,7 @@ export default function BatchSelect({ setBatch }) {
 
   return (
     <div style={batchStyle}>
-      <div>
-        <h3>Please select your Batch</h3>
-      </div>
+      <h3>Please select your Batch</h3>
       <Box sx={{ minWidth: 300 }}>
         <FormControl sx={{ m: 1, width: 300 }}>
           <InputLabel id="batch-select">Batch</InputLabel>
@@ -32,8 +29,10 @@ export default function BatchSelect({ setBatch }) {
             id="batch-select"
             onChange={handleChange}
           >
-            {Batches.map((item) => (
-              <MenuItem value={item}>{item}</MenuItem>
+            {Batches.map((item, index) => (
+              <MenuItem key={index} value={item}>
+                {item}
+              </MenuItem> // Add key prop here
             ))}
           </Select>
         </FormControl>

@@ -5,8 +5,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function BranchSelect({ batch }) {
-  const [branch, setBatch] = React.useState("");
+export default function BranchSelect({ batch, setBranch }) {
+  const [branch, setLocalBranch] = React.useState("Select branch");
 
   let branches = [];
   if (batch === "B.Tech") {
@@ -27,7 +27,8 @@ export default function BranchSelect({ batch }) {
   }
 
   const handleChange = (event) => {
-    setBatch(event.target.value);
+    setLocalBranch(event.target.value);
+    setBranch(event.target.value);
   };
 
   const branchStyle = {
@@ -38,9 +39,7 @@ export default function BranchSelect({ batch }) {
 
   return (
     <div style={branchStyle}>
-      <div>
-        <h3>Please select you Branch</h3>
-      </div>
+      <h3>Please select your Branch</h3>
       <Box sx={{ minWidth: 300 }}>
         <FormControl sx={{ m: 1, width: 300 }}>
           <InputLabel id="branch-select">Branch</InputLabel>
@@ -51,8 +50,13 @@ export default function BranchSelect({ batch }) {
             label="Branch"
             onChange={handleChange}
           >
-            {branches.map((item) => (
-              <MenuItem value={item}>{item}</MenuItem>
+            <MenuItem value="Select branch" disabled>
+              Select branch
+            </MenuItem>
+            {branches.map((item, index) => (
+              <MenuItem key={index} value={item}>
+                {item}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>

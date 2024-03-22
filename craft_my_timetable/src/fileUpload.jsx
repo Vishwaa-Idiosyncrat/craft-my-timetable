@@ -86,7 +86,7 @@ export default function InputFileUpload() {
         if (oldProgress === 100) {
           clearInterval(timer);
           setUploading(false);
-          navigate("/create"); // Redirect to /create
+          navigate("/create");
           return 0;
         }
         return Math.min(oldProgress + 10, 100);
