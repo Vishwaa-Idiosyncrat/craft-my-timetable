@@ -1,0 +1,238 @@
+{
+  "Monday": {
+    "classes": [
+      {
+        "subject": "Applied Thermo-Fluids Engineering",
+        "time": "9:00 - 9:50"
+      },
+      {
+        "subject": "Mechanical Vibrations",
+        "time": "10:00-10:50"
+      },
+      {
+        "subject": "Machine Design Practice",
+        "time": "11:00-11:50"
+      },
+      {
+        "subject": "Automation in Manufacturing",
+        "time": "12:05-12:55"
+      },
+      {
+        "subject": "Mechanical Engineering Laboratory 2",
+        "time": "14:00-16:45"
+      },
+      {
+        "subject": "Wheeled Mobile Robots",
+        "time": "17:10-18:00"
+      },
+      {
+        "subject": "Advanced Heat Transfer",
+        "time": "17:10-18:00"
+      },
+      {
+        "subject": "Combustion",
+        "time": "14:00-15:15"
+      },
+      {
+        "subject": "Additive Manufacturing",
+        "time": "12:05-12:55"
+      }
+    ]
+  },
+  "Tuesday": {
+    "classes": [
+      {
+        "subject": "Applied Thermo-Fluids Engineering",
+        "time": "17:10-18:00"
+      },
+      {
+        "subject": "Wheeled Mobile Robots",
+        "time": "12:00-12:50"
+      },
+      {
+        "subject": "Aerospace Propulsion",
+        "time": "14:00-15:15"
+      },
+      {
+        "subject": "Soft Computing",
+        "time": "15:30-16:45"
+      },
+      {
+        "subject": "Advanced Heat Transfer",
+        "time": "12:00-12:50"
+      },
+      {
+        "subject": "Lean Manufacturing",
+        "time": "9:00 - 10:15"
+      },
+      {
+        "subject": "Advanced Refrigeration and Air Conditioning",
+        "time": "15:30-16:45"
+      },
+      {
+        "subject": "Fundamentals of micro-nano manufacturing",
+        "time": "14:00-15:15"
+      },
+      {
+        "subject": "Foundation of Linguistics (40)",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Mental Health and Society in the Global South (40)",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Contemporary Issues in Economic Development (30)",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Introduction to Finite Element Methods",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Electrochemistry and Corrosions",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Computer Graphics (40)",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Computational Methods for Inverse Problems",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Industrial Chemistry",
+        "time": "9:00 - 10:15"
+      },
+      {
+        "subject": "Engineering Economics (40)*",
+        "time": "9:00 - 10:15"
+      }
+    ]
+  },
+  "Wednesday": {
+    "classes": [
+      {
+        "subject": "Applied Thermo-Fluids Engineering",
+        "time": "9:00 - 9:50"
+      },
+      {
+        "subject": "Mechanical Vibrations",
+        "time": "10:00-10:50"
+      },
+      {
+        "subject": "Machine Design Practice",
+        "time": "11:00-11:50"
+      },
+      {
+        "subject": "Automation in Manufacturing",
+        "time": "12:05-12:55"
+      },
+      {
+        "subject": "Additive Manufacturing",
+        "time": "12:05-12:55"
+      },
+      {
+        "subject": "Fundamentals of micro-nano manufacturing",
+        "time": "14:00-15:50"
+      }
+    ]
+  },
+  "Thursday": {
+    "classes": [
+      {
+        "subject": "Wheeled Mobile Robots",
+        "time": "12:00-12:50"
+      },
+      {
+        "subject": "Aerospace Propulsion",
+        "time": "14:00-15:15"
+      },
+      {
+        "subject": "Soft Computing",
+        "time": "15:30-16:45"
+      },
+      {
+        "subject": "Advanced Heat Transfer",
+        "time": "12:00-12:50"
+      },
+      {
+        "subject": "Lean Manufacturing",
+        "time": "9:00 - 10:15"
+      },
+      {
+        "subject": "Advanced Refrigeration and Air Conditioning",
+        "time": "15:30-16:45"
+      },
+      {
+        "subject": "Fundamentals of micro-nano manufacturing",
+        "time": "14:00-15:15"
+      },
+      {
+        "subject": "Foundation of Linguistics (40)",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Mental Health and Society in the Global South (40)",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Contemporary Issues in Economic Development (30)",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Introduction to Finite Element Methods",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Electrochemistry and Corrosions",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Computer Graphics (40)",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Computational Methods for Inverse Problems",
+        "time": "10:30-11:45"
+      },
+      {
+        "subject": "Industrial Chemistry",
+        "time": "9:00 - 10:15"
+      },
+      {
+        "subject": "Engineering Economics (40)*",
+        "time": "9:00 - 10:15"
+      }
+    ]
+  },
+  "Friday": {
+    "classes": [
+      {
+        "subject": "Applied Thermo-Fluids Engineering",
+        "time": "9:00 - 9:50"
+      },
+      {
+        "subject": "Mechanical Vibrations",
+        "time": "10:00-10:50"
+      },
+      {
+        "subject": "Machine Design Practice",
+        "time": "11:00-11:50"
+      },
+      {
+        "subject": "Automation in Manufacturing",
+        "time": "12:05-12:55"
+      },
+      {
+        "subject": "Combustion",
+        "time": "12:05-12:55"
+      },
+      {
+        "subject": "Additive Manufacturing",
+        "time": "14:00-15:15"
+      }
+    ]
+  }
+}

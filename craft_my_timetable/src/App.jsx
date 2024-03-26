@@ -10,6 +10,7 @@ import InputFileUpload from "./fileUpload";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline, Input } from "@mui/material";
 import PersistentDrawerLeft from "./drawer.jsx";
+import CourseSelectionPage from "./CourseSelectionPage";
 import {
   BrowserRouter as Router,
   Routes,
@@ -48,11 +49,6 @@ function BodyContent() {
   return location.pathname === "/" ? (
     <body style={bodyStyle}>
       <h1>Welcome to Craft My Timetable from YACC.</h1>
-      <h2>
-        Create Your Timetable so you won't miss classes due to messy Timetable
-        sent to us.
-      </h2>
-      <h1>Go to the Navigation Bar for more details.</h1>
     </body>
   ) : null;
 }
@@ -66,8 +62,8 @@ function App() {
           <BodyContent />
           <PersistentDrawerLeft />
           <Routes>
-            <Route path="/upload" element={<InputFileUpload />} />
-            <Route path="/create" element={<ParentComponent />} />
+            <Route path="/" element={<ParentComponent />} />
+            <Route path="/course-selection" element={<CourseSelectionPage />} />
           </Routes>
         </Router>
         <div style={centerDivStyle}></div>
