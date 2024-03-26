@@ -9,7 +9,6 @@ import BranchSelect from "./BranchSelector";
 import InputFileUpload from "./fileUpload";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline, Input } from "@mui/material";
-import PersistentDrawerLeft from "./drawer.jsx";
 import CourseSelectionPage from "./CourseSelectionPage";
 import {
   BrowserRouter as Router,
@@ -37,7 +36,7 @@ const titleBar = {
 
 const bodyStyle = {
   display: "grid",
-  marginTop: "100px",
+  marginTop: "25px",
   textAlign: "center",
   fontFamily: "sans-serif",
   justifyContent: "center",
@@ -60,7 +59,6 @@ function App() {
         <CssBaseline />
         <Router>
           <BodyContent />
-          <PersistentDrawerLeft />
           <Routes>
             <Route path="/" element={<ParentComponent />} />
             <Route path="/course-selection" element={<CourseSelectionPage />} />
