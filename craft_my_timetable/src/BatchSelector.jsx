@@ -10,6 +10,7 @@ export default function BatchSelect({ setBatch }) {
 
   const handleChange = (event) => {
     setBatch(event.target.value);
+    console.log(event.target.value)
   };
 
   const batchStyle = {

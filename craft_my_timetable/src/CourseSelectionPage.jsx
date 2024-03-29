@@ -44,6 +44,7 @@ function CourseSelectionPage({ courses }) {
 
   const handleChange = (event) => {
     setSelectedCourses(event.target.value);
+    console.log(event.target.value);
   };
 
   const handleSubmit = () => {
