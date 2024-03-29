@@ -20,6 +20,7 @@ export default function YearSelect({ batch, setYear }) {
   const handleChange = (event) => {
     setLocalYear(event.target.value);
     setYear(event.target.value);
+    console.log(event.target.value)
   };
 
   const yearStyle = {

@@ -61,18 +61,44 @@ export default function ParentComponent() {
   const [branch, setBranch] = useState("");
 
   const submit = () => {
-    setUploading(true);
-    const timer = setInterval(() => {
-      setProgress((oldProgress) => {
-        if (oldProgress === 100) {
-          clearInterval(timer);
-          setUploading(false);
-          window.location.href = "/course-selection";
-          return 0;
-        }
-        return Math.min(oldProgress + 20, 100);
+    // setUploading(true);
+    // const timer = setInterval(() => {
+    //   setProgress((oldProgress) => {
+    //     if (oldProgress === 100) {
+    //       clearInterval(timer);
+    //       setUploading(false);
+    //       window.location.href = "/course-selection";
+    //       return 0;
+    //     }
+    //     return Math.min(oldProgress + 20, 100);
+    //   });
+    // }, 500);
+
+    // Example POST method implementation:
+    async function sendBatch(url, data) {
+      // Default options are marked with *
+      const response = await fetch(url, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
       });
-    }, 500);
+      return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    sendBatch("https://0ef1-14-139-174-50.ngrok-free.app/courses", {
+      branch: "CSE",
+      semester: 4,
+    }).then((responseFromServer) => {
+      console.log(responseFromServer); // JSON data parsed by `data.json()` call
+    });
   };
 
   return (
