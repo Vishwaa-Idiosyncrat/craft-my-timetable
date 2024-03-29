@@ -19,7 +19,11 @@
       },
       {
         "subject": "Mechanical Engineering Laboratory 2",
-        "time": "14:00-16:45"
+        "time": "14:00-15:15"
+      },
+      {
+        "subject": "Mechanical Engineering Laboratory 2",
+        "time": "15:30-16:45"
       },
       {
         "subject": "Wheeled Mobile Robots",
@@ -135,7 +139,11 @@
       },
       {
         "subject": "Fundamentals of micro-nano manufacturing",
-        "time": "14:00-15:50"
+        "time": "14:00-15:15"
+      },
+      {
+        "subject": "Fundamentals of micro-nano manufacturing",
+        "time": "15:30-15:50"
       }
     ]
   },

@@ -32,7 +32,7 @@ export default function BatchSelect({ setBatch }) {
             {Batches.map((item, index) => (
               <MenuItem key={index} value={item}>
                 {item}
-              </MenuItem> // Add key prop here
+              </MenuItem>
             ))}
           </Select>
         </FormControl>

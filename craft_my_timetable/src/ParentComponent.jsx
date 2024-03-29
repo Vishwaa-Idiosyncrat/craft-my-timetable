@@ -88,7 +88,11 @@ export default function ParentComponent() {
         tabIndex={-1}
         onClick={submit}
         disabled={
-          !batch || year === "Select year" || branch === "Select branch"
+          !batch ||
+          year === "Select year" ||
+          !year ||
+          !branch ||
+          branch === "Select branch"
         }
       >
         Craft
