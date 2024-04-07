@@ -9,15 +9,23 @@ import Checkbox from "@mui/material/Checkbox";
 import ListItemText from "@mui/material/ListItemText";
 
 function CourseSelectionPage({ courses }) {
-  const [selectedCourses, setSelectedCourses] = useState([]);
+  const [selectedCourses, setSelectedCourses] = useState([]); //adding the courseCodes as the state works
   const [submitted, setSubmitted] = useState(false);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("/available.json");
         const coursesArray = await response.json();
-        courses(coursesArray);
+        setData(coursesArray);
+
+        //adding new line here
+        const defaultSelectionsResponse = await fetch(
+          "/defaultSelections.json"
+        );
+        const defaultSelections = await defaultSelectionsResponse.json();
+        setSelectedCourses(defaultSelections);
       } catch (error) {
         console.error("Error fetching courses:", error);
       }
@@ -84,9 +92,11 @@ function CourseSelectionPage({ courses }) {
               const courseName = course[courseCode][0];
               return (
                 <MenuItem key={index} value={courseCode}>
-                  <Checkbox
-                    checked={selectedCourses.indexOf(courseCode) > -1}
-                  />
+                  {
+                    <Checkbox
+                      checked={selectedCourses.indexOf(courseCode) > -1}
+                    />
+                  }
                   <ListItemText primary={`${courseCode}: ${courseName}`} />
                 </MenuItem>
               );

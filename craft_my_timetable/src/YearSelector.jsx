@@ -10,9 +10,18 @@ export default function YearSelect({ batch, setYear }) {
 
   let years = [];
   if (batch === "B.Tech") {
-    years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
+    years = [
+      "1st Semester",
+      "2nd Semester",
+      "3rd Semester",
+      "4th Semester",
+      "5th Semester",
+      "6th Semester",
+      "7th Semester",
+      "8th Semester",
+    ];
   } else if (batch === "M.Tech" || batch === "M.Sc") {
-    years = ["1st Year", "2nd Year"];
+    years = ["1st Semester", "2nd Semester", "3rd Semester", "4th Semester"];
   } else if (batch === "PhD") {
     years = ["1st Year", "2nd Year", "3rd Year", "4th Year", "5th Year"];
   }
@@ -20,7 +29,7 @@ export default function YearSelect({ batch, setYear }) {
   const handleChange = (event) => {
     setLocalYear(event.target.value);
     setYear(event.target.value);
-    console.log(event.target.value)
+    console.log(event.target.value);
   };
 
   const yearStyle = {
@@ -31,14 +40,14 @@ export default function YearSelect({ batch, setYear }) {
 
   return (
     <div style={yearStyle}>
-      <h3>Please select your Year</h3>
+      <h3>Please select your Semester</h3>
       <Box
         sx={{
           minWidth: 300,
         }}
       >
         <FormControl sx={{ m: 1, width: 300 }}>
-          <InputLabel id="year-select">Year</InputLabel>
+          <InputLabel id="year-select">Semester</InputLabel>
           <Select
             labelId="year-select"
             id="year-select"
@@ -47,7 +56,7 @@ export default function YearSelect({ batch, setYear }) {
             onChange={handleChange}
           >
             <MenuItem value="Select year" disabled>
-              Select year
+              Select Semester
             </MenuItem>{" "}
             {years.map((item, index) => (
               <MenuItem key={index} value={item}>
