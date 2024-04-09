@@ -16,16 +16,14 @@ function CourseSelectionPage({ courses }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/available.json");
-        const coursesArray = await response.json();
-        setData(coursesArray);
+        const response = await fetch("/ava1.json");
+        const coursesObject = await response.json();
+        setData(coursesObject);
 
-        //adding new line here
-        const defaultSelectionsResponse = await fetch(
-          "/defaultSelections.json"
-        );
-        const defaultSelections = await defaultSelectionsResponse.json();
-        setSelectedCourses(defaultSelections);
+        // Extract the course codes of the "CORE" courses
+        const coreCourses = Object.keys(coursesObject["CORE"]);
+
+        setSelectedCourses(coreCourses);
       } catch (error) {
         console.error("Error fetching courses:", error);
       }
@@ -87,19 +85,20 @@ function CourseSelectionPage({ courses }) {
             onChange={handleChange}
             renderValue={(selected) => selected.join(", ")}
           >
-            {courses.map((course, index) => {
-              const courseCode = Object.keys(course)[0];
-              const courseName = course[courseCode][0];
-              return (
-                <MenuItem key={index} value={courseCode}>
-                  {
-                    <Checkbox
-                      checked={selectedCourses.indexOf(courseCode) > -1}
-                    />
-                  }
-                  <ListItemText primary={`${courseCode}: ${courseName}`} />
-                </MenuItem>
-              );
+            {Object.entries(data).map(([category, courses]) => {
+              return Object.keys(courses).map((courseCode, index) => {
+                const courseName = courses[courseCode][0];
+                return (
+                  <MenuItem key={index} value={courseCode}>
+                    {
+                      <Checkbox
+                        checked={selectedCourses.indexOf(courseCode) > -1}
+                      />
+                    }
+                    <ListItemText primary={`${courseCode}: ${courseName}`} />
+                  </MenuItem>
+                );
+              });
             })}
           </Select>
         </FormControl>

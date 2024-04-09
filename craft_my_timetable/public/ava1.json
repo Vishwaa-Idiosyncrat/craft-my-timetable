@@ -1,0 +1,17 @@
+{
+  "CORE": {
+    "CS2030": ["Data Structures and Algorithms"],
+    "CS2130": ["Data Structures and Algorithms Lab"],
+    "CS3060": ["Computer Architecture"],
+    "CS3160": ["Computer Architecture Lab"],
+    "DS2020": ["Introduction to Artificial Intelligence"]
+  },
+  "SME": {
+    "MA2041": ["Probability and Statistics"],
+    "MA2032": ["Numerical Analysis"],
+    "PH4602": ["Introduction to Special Relativity"],
+    "PH3601": ["Quantum Mechanics for Engineers"],
+    "CY3601": ["Electrochemistry and Corrosions"],
+    "CY4001": ["Industrial Chemistry"]
+  }
+}
