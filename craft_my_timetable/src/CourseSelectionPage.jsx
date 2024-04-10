@@ -9,7 +9,7 @@ import Checkbox from "@mui/material/Checkbox";
 import ListItemText from "@mui/material/ListItemText";
 
 function CourseSelectionPage({ courses }) {
-  const [selectedCourses, setSelectedCourses] = useState([]); //adding the courseCodes as the state works
+  const [selectedCourses, setSelectedCourses] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [data, setData] = useState([]);
 

@@ -6,8 +6,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import data from "./available.json";
 
-let courses = [];
+// const courses = []
 
 const days_odd = ["Monday", "Friday"];
 const times_odd = [
@@ -44,10 +45,10 @@ const times_even = [
   "17:10-18:00",
 ];
 
-function TimetablePage({ courseTimings, courses }) {
+function TimetablePage({ courseTimings }) {
   const submitted = localStorage.getItem("submitted") === "true";
   const selectedCourses = JSON.parse(localStorage.getItem("selectedCourses"));
-
+  const courses = data;
   console.log("selectedCourses:", selectedCourses);
   console.log("courses:", courses);
   console.log("Rendering TimetablePage with submitted:", submitted);

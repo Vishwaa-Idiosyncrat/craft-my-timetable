@@ -1,0 +1,80 @@
+[
+  {
+    "ME3020": ["Applied Thermo-Fluids Engineering", ["A", "E2"]]
+  },
+  {
+    "ME3040": ["Mechanical Vibrations", ["B"]]
+  },
+  {
+    "ME3060": ["Machine Design Practice", ["C"]]
+  },
+  {
+    "ME3080": ["Automation in Manufacturing", ["H"]]
+  },
+  {
+    "ME3100": ["Internship", []]
+  },
+  {
+    "ME3180": ["Mechanical Engineering Laboratory 2", ["PA1"]]
+  },
+  {
+    "ME5617": ["Wheeled Mobile Robots", ["D", "E1"]]
+  },
+  {
+    "ME4502": ["Aerospace Propulsion", ["K"]]
+  },
+  {
+    "ME5610": ["Soft Computing", ["L"]]
+  },
+  {
+    "ME5620": ["Advanced Heat Transfer", ["D", "E1"]]
+  },
+  {
+    "ME5619": ["Combustion", ["I"]]
+  },
+  {
+    "ME5628": ["Lean Manufacturing", ["F"]]
+  },
+  {
+    "ME5626": ["Advanced Refrigeration and Air Conditioning", ["L"]]
+  },
+  {
+    "ME5618": ["Additive Manufacturing", ["H"]]
+  },
+  {
+    "ME5634": ["Fundamentals of micro-nano manufacturing", ["K", "PA3"]]
+  },
+  {
+    "HS4605": ["Foundation of Linguistics (40)", ["G"]]
+  },
+  {
+    "HS5009": ["Mental Health and Society in the Global South (40)", ["G"]]
+  },
+  {
+    "HS": ["Contemporary Issues in Economic Development (30)", ["G"]]
+  },
+  {
+    "HS4607M": ["German I (NPTEL)", ["NPTEL"]]
+  },
+  {
+    "HS3605": ["Introduction to Modern Indian Political Thought (NPTEL)", []]
+  },
+  {
+    "ME3522": ["Introduction to Finite Element Methods", ["G"]]
+  },
+  {
+    "CY3601": ["Electrochemistry and Corrosions", ["G"]]
+  },
+  {
+    "EE5XXXX": ["Computer Graphics (40)", ["G"]]
+  },
+  {
+    "ME5632": ["Computational Methods for Inverse Problems", ["G"]]
+  },
+  {
+    "CY4001": ["Industrial Chemistry", ["F"]]
+  },
+  {
+    "HS3627": ["Engineering Economics (40)*", ["F"]]
+  }
+]

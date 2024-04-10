@@ -1,0 +1,20 @@
+[{"CS2030": ["Data Structures and Algorithms", ["B"]]}, 
+{"CS2130": ["Data Structures and Algorithms Lab", ["PA4"]]}, 
+{"CS3060": ["Computer Architecture", ["G"]]}, 
+{"CS3160": ["Computer Architecture Lab", ["PA2"]]}, 
+{"DS2020": ["Introduction to Artificial Intelligence", ["C", "PA3"]]},
+{"CS2030": ["Data Structures and Algorithms", ["B"]]},
+
+{"CS2130": ["Data Structures and Algorithms Lab", ["PA4"]]},
+
+{"CS3060": ["Computer Architecture", ["G"]]},
+
+{"CS3160": ["Computer Architecture Lab", ["PA2"]]},
+{"DS2020": ["Introduction to Artificial Intelligence", ["C", "PA3"]]},
+
+{"Monday": ["Data Structures and Algorithms - 10:00-10:50", "Introduction to Artificial Intelligence - 11:00-11:50"], 
+"Tuesday": ["Computer Architecture - 10:30-11:45", "Computer Architecture Lab - 14:00-16:45"],
+"Wednesday": ["Data Structures and Algorithms - 10:00-10:50", "Introduction to Artificial Intelligence - 11:00-11:50", "Introduction to Artificial Intelligence - 14:00-15:50"],
+"Thursday": ["Data Structures and Algorithms Lab - 14:00-16:45", "Computer Architecture - 10:30-11:45"], 
+"Friday": ["Data Structures and Algorithms - 10:00-10:50", "Introduction to Artificial Intelligence - 11:00-11:50"], 
+"NPTEL": []}]
