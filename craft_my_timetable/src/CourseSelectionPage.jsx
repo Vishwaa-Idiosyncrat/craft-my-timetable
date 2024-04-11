@@ -7,6 +7,7 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Checkbox from "@mui/material/Checkbox";
 import ListItemText from "@mui/material/ListItemText";
+import response from "./../data.json";
 
 function CourseSelectionPage({ courses }) {
   const [selectedCourses, setSelectedCourses] = useState([]);
@@ -16,13 +17,21 @@ function CourseSelectionPage({ courses }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/ava1.json");
-        const coursesObject = await response.json();
-        setData(coursesObject);
+        // const response = await fetch("/ava1.json");
+        // console.log(response);
+        // console.log(response);
+        let core = response.CORE;
+        let core2 = {};
+        for (let i = 0; i < core.length; i++) {
+          core2[core[i][0]] = core[i].slice(1, 2);
+        }
+        // console.log(core2);
+        // const coursesObject = await response.json();
+        setData(core2); //changed coursesObject to core2
 
         // Extract the course codes of the "CORE" courses
-        const coreCourses = Object.keys(coursesObject["CORE"]);
-
+        const coreCourses = Object.keys(core2); //changing coursesObject["CORE"] to
+        // console.log(coreCourses)
         setSelectedCourses(coreCourses);
       } catch (error) {
         console.error("Error fetching courses:", error);
@@ -50,7 +59,7 @@ function CourseSelectionPage({ courses }) {
 
   const handleChange = (event) => {
     setSelectedCourses(event.target.value);
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
 
   const handleSubmit = () => {
@@ -86,6 +95,7 @@ function CourseSelectionPage({ courses }) {
             renderValue={(selected) => selected.join(", ")}
           >
             {Object.entries(data).map(([category, courses]) => {
+              console.log(courses);
               return Object.keys(courses).map((courseCode, index) => {
                 const courseName = courses[courseCode][0];
                 return (
