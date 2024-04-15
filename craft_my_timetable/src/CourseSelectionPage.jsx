@@ -8,29 +8,59 @@ import MenuItem from "@mui/material/MenuItem";
 import Checkbox from "@mui/material/Checkbox";
 import ListItemText from "@mui/material/ListItemText";
 import response from "./../data.json";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function CourseSelectionPage({ courses }) {
   const [selectedCourses, setSelectedCourses] = useState([]);
   const [submitted, setSubmitted] = useState(false);
   const [data, setData] = useState([]);
+  // const [timing, setTiming] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { year, branch } = location.state || {};
+  console.log(year, branch);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch("/timings.json"); ///replace timings.json with the api endpoint of the server
+  //     if (!response.ok) {
+  //       throw new Error("Network response was not ok");
+  //     }
+  //     const jsonData = await response.json();
+  //     setTiming(jsonData);
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // const response = await fetch("/ava1.json");
         // console.log(response);
-        // console.log(response);
-        let core = response.CORE;
-        let core2 = {};
-        for (let i = 0; i < core.length; i++) {
-          core2[core[i][0]] = core[i].slice(1, 2);
+        let data2 = {};
+        let categories = Object.keys(response);
+        for (let i = 0; i < categories.length; i++) {
+          let c = categories[i];
+          let arr2 = response[c];
+          let temp = {};
+          for (let j = 0; j < arr2.length; j++) {
+            let cC = arr2[j][0];
+            let cN = arr2[j][1];
+            temp[cC] = cN;
+          }
+          data2[c] = temp;
         }
-        // console.log(core2);
+        // console.log(data2);
         // const coursesObject = await response.json();
-        setData(core2); //changed coursesObject to core2
+        setData(data2); //changed coursesObject to core2
 
         // Extract the course codes of the "CORE" courses
-        const coreCourses = Object.keys(core2); //changing coursesObject["CORE"] to
+        const coreCourses = Object.keys(data2["CORE"]); //changing coursesObject["CORE"] to
         // console.log(coreCourses)
         setSelectedCourses(coreCourses);
       } catch (error) {
@@ -46,7 +76,7 @@ function CourseSelectionPage({ courses }) {
   useEffect(() => {
     const fetchTimings = async () => {
       try {
-        const response = await fetch("/timings.json");
+        const response = await fetch("/timings.json"); //replace with server endpoint
         const timings = await response.json();
         setCourseTimings(timings);
       } catch (error) {
@@ -59,14 +89,41 @@ function CourseSelectionPage({ courses }) {
 
   const handleChange = (event) => {
     setSelectedCourses(event.target.value);
-    // console.log(event.target.value);
+    console.log(event.target.value);
   };
 
   const handleSubmit = () => {
     localStorage.setItem("selectedCourses", JSON.stringify(selectedCourses));
     localStorage.setItem("submitted", "true");
     setSubmitted(true);
-    window.location.href = "/timetable";
+    navigate("/timetable");
+    // window.location.href("/timetable")
+
+    // async function sendBatch(url, data) {
+    //   // Default options are marked with *
+    //   const response = await fetch(url, {
+    //     method: "POST", // *GET, POST, PUT, DELETE, etc.
+    //     mode: "cors", // no-cors, *cors, same-origin
+    //     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+    //     credentials: "same-origin", // include, *same-origin, omit
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       // 'Content-Type': 'application/x-www-form-urlencoded',
+    //     },
+    //     redirect: "follow", // manual, *follow, error
+    //     referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    //     body: JSON.stringify(data), // body data type must match "Content-Type" header
+    //   });
+    //   return response.json(); // parses JSON response into native JavaScript objects
+    // }
+    // // console.log(branch,year)
+    // sendBatch("https://0e42-14-139-174-50.ngrok-free.app/courselist", {
+    //   selectedCourses: selectedCourses,
+    //   branch: "CE",
+    //   semester: "4th Semester",
+    // }).then((responseFromServer) => {
+    //   console.log(responseFromServer); // JSON data parsed by `data.json()` call
+    // });
   };
 
   const final_button = {
@@ -95,9 +152,9 @@ function CourseSelectionPage({ courses }) {
             renderValue={(selected) => selected.join(", ")}
           >
             {Object.entries(data).map(([category, courses]) => {
-              console.log(courses);
+              // console.log(courses);
               return Object.keys(courses).map((courseCode, index) => {
-                const courseName = courses[courseCode][0];
+                const courseName = courses[courseCode];
                 return (
                   <MenuItem key={index} value={courseCode}>
                     {

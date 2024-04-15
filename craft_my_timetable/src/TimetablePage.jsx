@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import data from "./available.json";
+import { useLocation   } from "react-router-dom";
 
 // const courses = []
 
@@ -49,6 +50,10 @@ function TimetablePage({ courseTimings }) {
   const submitted = localStorage.getItem("submitted") === "true";
   const selectedCourses = JSON.parse(localStorage.getItem("selectedCourses"));
   const courses = data;
+  // const location = useLocation();
+  // const { timings } = location.state || {};
+  // console.log({timings})
+  console.log(courseTimings)
   console.log("selectedCourses:", selectedCourses);
   console.log("courses:", courses);
   console.log("Rendering TimetablePage with submitted:", submitted);

@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import BatchSelect from "./BatchSelector";
 import YearSelect from "./YearSelector.jsx";
 import BranchSelect from "./BranchSelector.jsx";
+import { useNavigate } from "react-router-dom";
 
 function CircularProgressWithLabel(props) {
   return (
@@ -60,19 +61,21 @@ export default function ParentComponent() {
   const [year, setYear] = useState("");
   const [branch, setBranch] = useState("");
 
+  const navigate = useNavigate();
+
   const submit = () => {
-    // setUploading(true);
-    // const timer = setInterval(() => {
-    //   setProgress((oldProgress) => {
-    //     if (oldProgress === 100) {
-    //       clearInterval(timer);
-    //       setUploading(false);
-    //       window.location.href = "/course-selection";
-    //       return 0;
-    //     }
-    //     return Math.min(oldProgress + 20, 100);
-    //   });
-    // }, 500);
+    setUploading(true);
+    const timer = setInterval(() => {
+      setProgress((oldProgress) => {
+        if (oldProgress === 100) {
+          clearInterval(timer);
+          setUploading(false);
+          navigate("/course-selection", { state: { year, branch } });
+          return 0;
+        }
+        return Math.min(oldProgress + 20, 100);
+      });
+    }, 500);
 
     // Example POST method implementation:
     async function sendBatch(url, data) {
@@ -92,10 +95,10 @@ export default function ParentComponent() {
       });
       return response.json(); // parses JSON response into native JavaScript objects
     }
-
-    sendBatch("https://0ef1-14-139-174-50.ngrok-free.app/courses", {
-      branch: "CSE",
-      semester: 4,
+    console.log(branch, year);
+    sendBatch("https://0e42-14-139-174-50.ngrok-free.app/courses", {
+      branch: branch,
+      semester: year,
     }).then((responseFromServer) => {
       console.log(responseFromServer); // JSON data parsed by `data.json()` call
     });
