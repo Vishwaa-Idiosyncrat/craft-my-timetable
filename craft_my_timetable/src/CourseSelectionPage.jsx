@@ -7,7 +7,7 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Checkbox from "@mui/material/Checkbox";
 import ListItemText from "@mui/material/ListItemText";
-import response from "./../data.json";
+// import response from "./../data.json";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
@@ -40,29 +40,52 @@ function CourseSelectionPage({ courses }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await fetch("/ava1.json");
-        // console.log(response);
-        let data2 = {};
-        let categories = Object.keys(response);
-        for (let i = 0; i < categories.length; i++) {
-          let c = categories[i];
-          let arr2 = response[c];
-          let temp = {};
-          for (let j = 0; j < arr2.length; j++) {
-            let cC = arr2[j][0];
-            let cN = arr2[j][1];
-            temp[cC] = cN;
-          }
-          data2[c] = temp;
+        async function sendBatch(url, data) {
+          // Default options are marked with *
+          const response = await fetch(url, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+              "Content-Type": "application/json",
+              // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+          });
+          return response.json(); // parses JSON response into native JavaScript objects
         }
-        // console.log(data2);
-        // const coursesObject = await response.json();
-        setData(data2); //changed coursesObject to core2
-
-        // Extract the course codes of the "CORE" courses
+        await sendBatch("https://04c1-14-139-174-50.ngrok-free.app/courselist", {
+          selectedCourses: selectedCourses,
+          branch: branch,
+          semester: year,
+        }).then((responseFromServer) => {
+          console.log(responseFromServer); // JSON data parsed by `data.json()` call
+          let data2 = {};
+          let categories = Object.keys(responseFromServer.result);
+          for (let i = 0; i < categories.length; i++) {
+            let c = categories[i];
+            let arr2 = responseFromServer.result[c];
+            let temp = {};
+            for (let j = 0; j < arr2.length; j++) {
+              let cC = arr2[j][0];
+              let cN = arr2[j][1];
+              temp[cC] = cN;
+            }
+            data2[c] = temp;
+          }
+          // console.log(data2);
+          // const coursesObject = await response.json();
+          setData(data2); //changed coursesObject to core2
+          // Extract the course codes of the "CORE" courses
         const coreCourses = Object.keys(data2["CORE"]); //changing coursesObject["CORE"] to
         // console.log(coreCourses)
         setSelectedCourses(coreCourses);
+        });
+
+        
       } catch (error) {
         console.error("Error fetching courses:", error);
       }
@@ -98,32 +121,7 @@ function CourseSelectionPage({ courses }) {
     setSubmitted(true);
     navigate("/timetable");
     // window.location.href("/timetable")
-
-    // async function sendBatch(url, data) {
-    //   // Default options are marked with *
-    //   const response = await fetch(url, {
-    //     method: "POST", // *GET, POST, PUT, DELETE, etc.
-    //     mode: "cors", // no-cors, *cors, same-origin
-    //     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    //     credentials: "same-origin", // include, *same-origin, omit
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       // 'Content-Type': 'application/x-www-form-urlencoded',
-    //     },
-    //     redirect: "follow", // manual, *follow, error
-    //     referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    //     body: JSON.stringify(data), // body data type must match "Content-Type" header
-    //   });
-    //   return response.json(); // parses JSON response into native JavaScript objects
-    // }
-    // // console.log(branch,year)
-    // sendBatch("https://0e42-14-139-174-50.ngrok-free.app/courselist", {
-    //   selectedCourses: selectedCourses,
-    //   branch: "CE",
-    //   semester: "4th Semester",
-    // }).then((responseFromServer) => {
-    //   console.log(responseFromServer); // JSON data parsed by `data.json()` call
-    // });
+    // console.log(branch,year)
   };
 
   const final_button = {

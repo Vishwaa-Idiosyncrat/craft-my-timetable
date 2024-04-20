@@ -70,7 +70,7 @@ export default function ParentComponent() {
         if (oldProgress === 100) {
           clearInterval(timer);
           setUploading(false);
-          navigate("/course-selection", { state: { year, branch } });
+          navigate("/course-selection", { state: { year, branch, responseFromServerCourses } });
           return 0;
         }
         return Math.min(oldProgress + 20, 100);
@@ -96,10 +96,11 @@ export default function ParentComponent() {
       return response.json(); // parses JSON response into native JavaScript objects
     }
     console.log(branch, year);
-    sendBatch("https://0e42-14-139-174-50.ngrok-free.app/courses", {
+    sendBatch("http://127.0.0.1:8000/courses", {
       branch: branch,
       semester: year,
     }).then((responseFromServer) => {
+      const responseFromServerCourses = responseFromServer.result
       console.log(responseFromServer); // JSON data parsed by `data.json()` call
     });
   };
